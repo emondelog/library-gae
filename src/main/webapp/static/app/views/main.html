@@ -1,0 +1,26 @@
+<div ng-controller="MainCtrl" layout="column" ng-cloak class="md-inline-form">
+	<md-data-table-toolbar>
+		<h2 class="md-title">Book List</h2>
+	</md-data-table-toolbar>
+
+	<md-data-table-container>
+		<table md-data-table md-progress="deferred">
+	    	<thead md-order="order">
+	      		<tr>
+	        		<th name="Title" order-by="name"></th>
+	        		<th name="Author" order-by="author"></th>
+	      		</tr>
+	    	</thead>
+	    	<tbody>
+	      		<tr md-auto-select ng-repeat="book in books.data | orderBy: order" ng-click="showDialog(book)">
+	        		<td>{{book.name}}</td>
+	        		<td>{{book.author}}</td>
+	      		</tr>
+    		</tbody>
+	  	</table>
+	</md-data-table-container>
+
+	<md-button class="md-fab" aria-label="Add book" ng-click="showDialog()">
+    	<md-icon md-svg-src="images/icons/ic_add_white_48px.svg"></md-icon>
+	</md-button>
+</div>

@@ -1,0 +1,45 @@
+<div ng-controller="BookDetailCtrl" layout="column" ng-cloak class="md-inline-form">
+  <form name="bookForm">
+    <md-data-table-toolbar>
+      <h2 class="md-title">Book Details</h2>
+    </md-data-table-toolbar>
+    <md-dialog-content style="max-width:800px;max-height:810px; ">
+		<div class="md-dialog-content" layout="row" layout-sm="column">
+        	<md-input-container flex>
+         		<label>Title</label>
+              <input required name="name" ng-model="book.name">
+              <div ng-messages="bookForm.name.$error" role="alert" multiple>
+                <div ng-message="required" class="my-message">The title is required.</div>
+              </div>
+        	</md-input-container>
+        	<md-input-container flex>
+        		<label>Author</label>
+          		<input ng-model="book.author">
+        	</md-input-container>
+        </div>
+
+        <div class="md-dialog-content" layout="row" layout-sm="column">
+        	<md-input-container flex>
+          		<label>Year</label>
+              <input type="number" name="year" ng-model="book.year">
+              <div ng-messages="bookForm.year.$error" role="alert" multiple>
+                <div ng-message="number" class="my-message">The year must be a number.</div>
+              </div>
+        	</md-input-container>
+        	<md-input-container flex>
+          		<label>Genre</label>
+          		<input ng-model="book.genre">
+        	</md-input-container>
+      	</div>
+
+     	<div class="md-dialog-content" layout="row" layout-align="center center">
+      		<md-button class="md-raised md-primary" ng-click="addBook()">
+				Save
+      		</md-button>
+      		<md-button class="md-raised md-warn" ng-click="deleteBook()" ng-disabled="deleteDisabled">
+				Delete
+      		</md-button>
+  		</div>
+  	</md-dialog-content>
+  </form>
+</div>

@@ -1,0 +1,8 @@
+.idea
+.settings
+.project
+.classpath
+target
+target-grunt
+local_db.bin
+*.iml
